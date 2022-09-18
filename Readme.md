@@ -45,6 +45,8 @@ The file must be in the following format:
 So, one user per line, username and password separated by a colon.
 Passwords are stored in **bcrypt** format.
 
+You can use [gobcrypt](https://github.com/memmaker/gobcrypt) to create them.
+
 ## Installation
 
 Download the binary. Done.
