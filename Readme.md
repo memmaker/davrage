@@ -15,6 +15,22 @@ It perfectly fits if you would like to give some people the possibility to uploa
 
 ## Usage
 
+### Podman run
+
+You'll have to provide at least a data directory.
+Authentication is optional.
+
+    podman run -d \
+     -e DR_BIND_TO_IP="0.0.0.0" \
+     -e DR_AUTH_FILE="/auth_user" \
+     -p 8000:8000 \
+     -v "$WEBDAV_DATA_DIR":/tmp \
+     -v "$AUTHFILE":/auth_user \
+     --name webdav \
+     --network podnet \
+     ghcr.io/memmaker/davrage:latest
+
+
 ### Configuration via Environment Variables
 
     Address: "DR_BIND_TO_IP",   Default: "127.0.0.1"
