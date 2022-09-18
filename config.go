@@ -56,14 +56,14 @@ func ValueOrDefault(envKey string, defaultValue string) string {
 	return valueFromEnv
 }
 
-// ParseConfig parses the application configuration an sets defaults.
+// ParseConfig parses the application configuration and sets defaults.
 func ParseConfig() *Config {
 	tlsConfig := getTLSConfig()
 	userConfig := getUserConfig()
 	var cfg = &Config{
 		Address: ValueOrDefault("DR_BIND_TO_IP", "127.0.0.1"),
 		Port:    ValueOrDefault("DR_BIND_TO_PORT", "8000"),
-		Prefix:  ValueOrDefault("DR_URL_PREFIX", "8000"),
+		Prefix:  ValueOrDefault("DR_URL_PREFIX", "/"),
 		Dir:     ValueOrDefault("DR_ROOT", "/tmp"),
 		Users:   userConfig,
 		TLS:     tlsConfig,
