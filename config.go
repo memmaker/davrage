@@ -101,7 +101,7 @@ func getUserConfig() map[string]*UserInfo {
 	users := make(map[string]*UserInfo)
 	for _, line := range authFileContent {
 		username, passhash := splitUserPass(line)
-		if username != "" && passhash != "" {
+		if username == "" && passhash == "" {
 			continue
 		}
 		subdir := "/" + username
