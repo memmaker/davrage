@@ -9,7 +9,7 @@ _davrage_ is a simple webdav server that provides the following features:
 - A simple user management which allows user-directory-jails.
 - Fixes the Golang WebDAV implementation bugs where an unreadable file or named pipe inside a WebDAV share kills the server.
 - It just logs to the damn stdout.
-- It doesn't use any fany configuration frameworks or file formats.
+- It doesn't use any fancy configuration frameworks or file formats.
 
 It perfectly fits if you would like to give some people the possibility to upload, download or share files with common tools like the OSX Finder, Windows Explorer or Nautilus under Linux ([or many other tools](https://en.wikipedia.org/wiki/Comparison_of_WebDAV_software#WebDAV_clients)).
 
