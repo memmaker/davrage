@@ -24,3 +24,7 @@ TODO
 You could simply connect to the webdav server with a http(s) connection and a tool that allows the webdav protocol.
 
 For example: Under OSX you can use the default file management tool *Finder*. Press _CMD+K_, enter the server address (e.g. `http://localhost:8000`) and choose connect.
+
+## History
+
+An update and demolition of the work done here: https://github.com/micromata/dave
