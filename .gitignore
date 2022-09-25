@@ -21,3 +21,6 @@ dist/
 *.pem
 
 release/
+container/davrage
+
+.DS_Store

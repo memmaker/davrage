@@ -39,6 +39,14 @@ func NewBasicAuthWebdavHandler(a *App) http.Handler {
 	})
 }
 
+func printRequestInfo(r *http.Request) {
+	fmt.Println(r.RemoteAddr + " > " + r.Method + " " + r.Host + r.URL.Path + " {")
+	for k, v := range r.Header {
+		fmt.Println("  " + k + ": " + strings.Join(v, ","))
+	}
+	fmt.Println("}")
+}
+
 func authenticate(config *Config, username, password string) (*AuthInfo, error) {
 	if !config.AuthenticationNeeded() {
 		return &AuthInfo{Username: "", Authenticated: false}, nil

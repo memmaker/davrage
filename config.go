@@ -28,6 +28,7 @@ type Logging struct {
 	Read   bool
 	Update bool
 	Delete bool
+	Debug  bool
 }
 
 // TLS allows specification of a certificate and private key file.
@@ -60,6 +61,11 @@ func ValueOrDefault(envKey string, defaultValue string) string {
 func ParseConfig() *Config {
 	tlsConfig := getTLSConfig()
 	userConfig := getUserConfig()
+	logging := Logging{Error: true}
+	isLoggingEnabled := ValueOrDefault("DR_LOGGING", "false") == "true"
+	if isLoggingEnabled {
+		logging = Logging{Error: true, Create: true, Read: true, Update: true, Delete: true, Debug: true}
+	}
 	var cfg = &Config{
 		Address: ValueOrDefault("DR_BIND_TO_IP", "127.0.0.1"),
 		Port:    ValueOrDefault("DR_BIND_TO_PORT", "8000"),
@@ -69,7 +75,7 @@ func ParseConfig() *Config {
 		TLS:     tlsConfig,
 		Realm:   ValueOrDefault("DR_AUTH_REALM", "dav-rage"),
 		Cors:    Cors{Credentials: false},
-		Log:     Logging{Error: true},
+		Log:     logging,
 	}
 
 	return cfg
