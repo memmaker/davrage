@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/bcrypt"
-	"log"
 	"net/http"
 	"strings"
 )
@@ -143,14 +142,4 @@ func writeUnauthorized(w http.ResponseWriter, realm string) {
 	if err != nil {
 		fmt.Println("Error sending unauthorized response")
 	}
-}
-
-// GenHash generates a bcrypt hashed password string
-func GenHash(password []byte) string {
-	pw, err := bcrypt.GenerateFromPassword(password, 10)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return string(pw)
 }

@@ -67,7 +67,7 @@ func ParseConfig() *Config {
 		logging = Logging{Error: true, Create: true, Read: true, Update: true, Delete: true, Debug: true}
 	}
 	var cfg = &Config{
-		Address: ValueOrDefault("DR_BIND_TO_IP", "127.0.0.1"),
+		Address: ValueOrDefault("DR_BIND_TO_IP", "0.0.0.0"),
 		Port:    ValueOrDefault("DR_BIND_TO_PORT", "8000"),
 		Prefix:  ValueOrDefault("DR_URL_PREFIX", "/"),
 		Dir:     ValueOrDefault("DR_ROOT", "/tmp"),

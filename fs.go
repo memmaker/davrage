@@ -58,7 +58,7 @@ func (d Dir) Mkdir(ctx context.Context, name string, perm os.FileMode) error {
 	if name = d.resolve(ctx, name); name == "" {
 		return os.ErrNotExist
 	}
-	err := os.Mkdir(name, perm)
+	err := os.MkdirAll(name, perm)
 	if err != nil {
 		return err
 	}
